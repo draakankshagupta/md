@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo \"No package dependencies\"",
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {"source": "/ace-my-path", "destination": "/ace-my-path-page", "statusCode": 301},
+    {"source": "/books", "destination": "/books-page", "statusCode": 301},
+    {"source": "/scholarly-activity", "destination": "/research", "statusCode": 301},
+    {"source": "/testimonials", "destination": "/testimonials-and-reviews", "statusCode": 301},
+    {"source": "/curriculum-vitae", "destination": "/#ag-about", "statusCode": 301},
+    {"source": "/media", "destination": "/#ag-media", "statusCode": 301},
+    {"source": "/mdhelponline", "destination": "/#ag-service", "statusCode": 301}
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()"}
+      ]
+    }
+  ]
+}
